@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - TAJ SKYLINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header fixed-header">
+        <div class="head-top">
+            <span class="site-name">TAJ SKYLINE</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gallery.html" class="active">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms</a>
+                <a href="offers.html">Offers</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="signin.html" class="btn-link">Sign In</a>
+                <a href="signup.html" class="btn-link">Sign Up</a>
+            </div>
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section main-content">
+        <div class="title">
+            <h1>Our Photo Gallery</h1>
+        </div>
+
+        <!-- Gallery Categories -->
+        <div class="gallery-categories">
+            <a href="#" class="category-filter active" data-category="all">All</a>
+            <a href="#" class="category-filter" data-category="rooms">Rooms</a>
+            <a href="#" class="category-filter" data-category="restaurant">Restaurant</a>
+            <a href="#" class="category-filter" data-category="spa">Spa</a>
+            <a href="#" class="category-filter" data-category="events">Events</a>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Gallery Items -->
+            <div class="gallery-item" data-category="rooms">
+                <img src="images/img1.jpg" alt="Luxury Room">
+                <div class="gallery-overlay">
+                    <h3>Luxury Rooms</h3>
+                    <p>Experience ultimate comfort in our luxury rooms</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="restaurant">
+                <img src="images/FineDining.jpg" alt="Restaurant">
+                <div class="gallery-overlay">
+                    <h3>Fine Dining</h3>
+                    <p>Exquisite dining experience with world-class cuisine</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="spa">
+                <img src="images/spa.jpg" alt="Spa">
+                <div class="gallery-overlay">
+                    <h3>Relaxation Spa</h3>
+                    <p>Rejuvenate your senses in our premium spa</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="rooms">
+                <img src="images/HotelExterior.jpg" alt="Hotel Exterior">
+                <div class="gallery-overlay">
+                    <h3>Hotel Exterior</h3>
+                    <p>Magnificent architecture and stunning views</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="images/Eventspaces.jpg" alt="Events">
+                <div class="gallery-overlay">
+                    <h3>Event Spaces</h3>
+                    <p>Perfect venues for your special occasions</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="spa">
+                <img src="images/pool.jpg" alt="Swimming Pool">
+                <div class="gallery-overlay">
+                    <h3>Swimming Pool</h3>
+                    <p>Relax by our pristine swimming pool</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="spa">
+                <img src="images/gym.jpg" alt="Gym">
+                <div class="gallery-overlay">
+                    <h3>Fitness Center</h3>
+                    <p>State-of-the-art fitness equipment</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="images/conference.jpg" alt="Conference Room">
+                <div class="gallery-overlay">
+                    <h3>Conference Facilities</h3>
+                    <p>Modern meeting and conference spaces</p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="restaurant">
+                <img src="images/lounge.jpg" alt="Lounge">
+                <div class="gallery-overlay">
+                    <h3>Executive Lounge</h3>
+                    <p>Exclusive lounge for our premium guests</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more">
+            <button class="btn">Load More</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h2>About Us</h2>
+                <p>The Hotel is a modern, elegant 5-star hotel overlooking the sea, perfect for a romantic, charming vacation, in the enchanting setting of Taormina and the Ionian Sea.</p>
+                <ul class="social-icons">
+                    <li class="flex" id="twitter">
+                        <a href="http://twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="facebook">
+                        <a href="http://facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="instagram">
+                        <a href="http://instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Useful Links</h2>
+                <a href="#">Blog</a>
+                <a href="#">Rooms</a>
+                <a href="#">Subscription</a>
+                <a href="#">Gift Card</a>
+            </div>
+
+            <div>
+                <h2>Privacy</h2>
+                <a href="#">Career</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+            </div>
+
+            <div>
+                <h2>Have A Question</h2>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                    <span>
+                        203 Fake St. Mountain View, San Francisco, California, USA
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-phone-alt"></i>
+                    </span>
+                    <span>
+                        +84545 37534 48
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span>
+                        info@domain.com
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all filters
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    galleryItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html> 

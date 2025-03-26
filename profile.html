@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - TAJ SKYLINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: #2c2c2c;
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #f3c614;
+        }
+
+        .modal-form {
+            margin-top: 20px;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .modal-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f3c614;
+        }
+
+        .modal-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 5px;
+        }
+
+        .modal-form button {
+            background: #f3c614;
+            color: black;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .modal-form button:hover {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <section class="profile-section">
+        <div class="title">
+            <h3>User Profile</h3>
+        </div>
+        <div class="profile-container">
+            <div class="profile-info">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h2 id="userName">Loading...</h2>
+                    <p id="memberSince">Member since: Loading...</p>
+                </div>
+                <div class="profile-details">
+                    <div class="info-group">
+                        <label>Email:</label>
+                        <p id="userEmail">Loading...</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Phone:</label>
+                        <p id="userPhone">Loading...</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Address:</label>
+                        <p id="userAddress">Loading...</p>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn edit-profile-btn">Edit Profile</button>
+                    <button class="btn change-password-btn">Change Password</button>
+                </div>
+            </div>
+            <div class="booking-history">
+                <h3>Booking History</h3>
+                <div class="booking-list">
+                    <!-- Booking history will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('editProfileModal')">&times;</span>
+            <h3>Edit Profile</h3>
+            <form id="editProfileForm" class="modal-form">
+                <div class="form-group">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPhone">Phone</label>
+                    <input type="tel" id="editPhone">
+                </div>
+                <div class="form-group">
+                    <label for="editAddress">Address</label>
+                    <input type="text" id="editAddress">
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('changePasswordModal')">&times;</span>
+            <h3>Change Password</h3>
+            <form id="changePasswordForm" class="modal-form">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            if (!token || !user) {
+                window.location.href = 'signin.html';
+                return;
+            }
+            
+            // Update profile information
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userPhone').textContent = user.phone || 'Not provided';
+            document.getElementById('userAddress').textContent = user.address || 'Not provided';
+            
+            // Format and display member since date
+            const memberDate = new Date(user.createdAt || Date.now());
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('memberSince').textContent = `Member since: ${monthNames[memberDate.getMonth()]} ${memberDate.getFullYear()}`;
+            
+            // Load booking history
+            loadBookingHistory();
+        }
+
+        // Load booking history
+        async function loadBookingHistory() {
+            const bookingList = document.querySelector('.booking-list');
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            console.log('User data:', user); // Debug log
+            
+            try {
+                // First try to get fresh booking data from server
+                const response = await fetch('http://localhost:3000/api/bookings', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                
+                const bookings = await response.json();
+                console.log('Bookings from server:', bookings); // Debug log
+                
+                if (response.ok && bookings.length > 0) {
+                    const bookingsHTML = bookings.map(booking => `
+                        <div class="booking-item">
+                            <h4>${booking.roomType}</h4>
+                            <p>Check-in: ${new Date(booking.checkIn).toLocaleDateString()}</p>
+                            <p>Check-out: ${new Date(booking.checkOut).toLocaleDateString()}</p>
+                            <p>Adults: ${booking.adults}, Children: ${booking.children}</p>
+                            <p>Rooms: ${booking.rooms}</p>
+                            <span class="booking-status ${booking.status.toLowerCase()}">${booking.status}</span>
+                        </div>
+                    `).join('');
+                    bookingList.innerHTML = bookingsHTML;
+                } else if (user.bookings && user.bookings.length > 0) {
+                    // Fallback to local storage data if server request fails
+                    const bookingsHTML = user.bookings.map(booking => `
+                        <div class="booking-item">
+                            <h4>${booking.roomType}</h4>
+                            <p>Check-in: ${new Date(booking.checkIn).toLocaleDateString()}</p>
+                            <p>Check-out: ${new Date(booking.checkOut).toLocaleDateString()}</p>
+                            <p>Adults: ${booking.adults || 'N/A'}, Children: ${booking.children || 'N/A'}</p>
+                            <p>Rooms: ${booking.rooms || 'N/A'}</p>
+                            <span class="booking-status ${booking.status.toLowerCase()}">${booking.status}</span>
+                        </div>
+                    `).join('');
+                    bookingList.innerHTML = bookingsHTML;
+                } else {
+                    bookingList.innerHTML = '<p>No booking history available.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading booking history:', error);
+                // Fallback to showing message
+                bookingList.innerHTML = '<p>Error loading booking history. Please try again later.</p>';
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            if (modalId === 'editProfileModal') {
+                const user = JSON.parse(localStorage.getItem('user'));
+                document.getElementById('editName').value = user.name || '';
+                document.getElementById('editPhone').value = user.phone || '';
+                document.getElementById('editAddress').value = user.address || '';
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Edit Profile Form Handler
+        document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newName = document.getElementById('editName').value;
+            const newPhone = document.getElementById('editPhone').value;
+            const newAddress = document.getElementById('editAddress').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/profile', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({
+                        name: newName,
+                        phone: newPhone,
+                        address: newAddress
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('user', JSON.stringify(data));
+                    checkAuth();
+                    closeModal('editProfileModal');
+                    alert('Profile updated successfully!');
+                } else {
+                    alert(data.message || 'Failed to update profile');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while updating profile');
+            }
+        });
+
+        // Change Password Form Handler
+        document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match!');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/users/change-password', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({
+                        currentPassword,
+                        newPassword
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    closeModal('changePasswordModal');
+                    document.getElementById('changePasswordForm').reset();
+                    alert('Password changed successfully!');
+                } else {
+                    alert(data.message || 'Failed to change password');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while changing password');
+            }
+        });
+
+        // Button click handlers
+        document.querySelector('.edit-profile-btn').addEventListener('click', () => openModal('editProfileModal'));
+        document.querySelector('.change-password-btn').addEventListener('click', () => openModal('changePasswordModal'));
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Call checkAuth when page loads
+        window.addEventListener('load', checkAuth);
+    </script>
+</body>
+</html> 

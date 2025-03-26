@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TAJ SKYLINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header fixed-header">
+        <div class="head-top">
+            <span class="site-name">TAJ SKYLINE</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms</a>
+                <a href="offers.html">Offers</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="signin.html" class="btn-link">Sign In</a>
+                <a href="signup.html" class="btn-link">Sign Up</a>
+            </div>
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section main-content">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2 class="animate__animated animate__fadeInDown">Get in Touch</h2>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">We'd love to hear from you. Feel free to reach out for any inquiries or assistance.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- Contact Info Cards -->
+                <div class="contact-card" style="animation-delay: 0.2s">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Our Location</h3>
+                        <p>123 Luxury Avenue<br>Mumbai, Maharashtra<br>India - 400001</p>
+                    </div>
+                </div>
+
+                <div class="contact-card" style="animation-delay: 0.4s">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone Numbers</h3>
+                        <p>Reservations: +91 123 456 7890<br>Support: +91 098 765 4321<br>Fax: +91 123 456 7899</p>
+                    </div>
+                </div>
+
+                <div class="contact-card" style="animation-delay: 0.6s">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Address</h3>
+                        <p>info@tajskyline.com<br>reservations@tajskyline.com<br>support@tajskyline.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="What is this regarding?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="5" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Map -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.803752639543!2d72.8270835!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8e123f8d27b%3A0x37e6c186768f0c!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1625136體" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="#" class="social-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h2>About Us</h2>
+                <p>Experience luxury and comfort at Taj Skyline, where every stay becomes a memorable journey.</p>
+                <ul class="social-icons">
+                    <li class="flex" id="twitter">
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="facebook">
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="instagram">
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Quick Links</h2>
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div>
+                <h2>Contact Info</h2>
+                <div class="contact-item">
+                    <span><i class="fas fa-map-marker-alt"></i></span>
+                    <span>123 Luxury Avenue, Mumbai, India</span>
+                </div>
+                <div class="contact-item">
+                    <span><i class="fas fa-phone-alt"></i></span>
+                    <span>+91 123 456 7890</span>
+                </div>
+                <div class="contact-item">
+                    <span><i class="fas fa-envelope"></i></span>
+                    <span>info@tajskyline.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.contact-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight - 100) {
+                    card.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

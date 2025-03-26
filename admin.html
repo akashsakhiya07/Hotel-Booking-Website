@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Panel - TAJ SKYLINE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .booking-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .booking-list th, .booking-list td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .booking-list th {
+            background: #3399cc;
+            color: white;
+        }
+        .booking-list tr:hover {
+            background: #f5f5f5;
+        }
+        .status-pending {
+            color: orange;
+        }
+        .status-confirmed {
+            color: green;
+        }
+        .status-cancelled {
+            color: red;
+        }
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .confirm-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        .cancel-btn {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TAJ SKYLINE - Admin Panel</h1>
+        <table class="booking-list">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Guests</th>
+                    <th>Rooms</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookingsList">
+                <!-- Bookings will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+
+        async function loadBookings() {
+            try {
+                const response = await fetch(`${API_URL}/bookings`);
+                const bookings = await response.json();
+                displayBookings(bookings);
+            } catch (error) {
+                console.error('Error loading bookings:', error);
+            }
+        }
+
+        function displayBookings(bookings) {
+            const bookingsList = document.getElementById('bookingsList');
+            bookingsList.innerHTML = bookings.map(booking => `
+                <tr>
+                    <td>${new Date(booking.createdAt).toLocaleDateString()}</td>
+                    <td>${new Date(booking.checkIn).toLocaleDateString()}</td>
+                    <td>${new Date(booking.checkOut).toLocaleDateString()}</td>
+                    <td>Adults: ${booking.adults}, Children: ${booking.children}</td>
+                    <td>${booking.rooms}</td>
+                    <td>${booking.totalPrice}</td>
+                    <td class="status-${booking.status.toLowerCase()}">${booking.status}</td>
+                    <td>
+                        <button class="action-btn confirm-btn" onclick="updateBooking('${booking._id}', 'confirmed')">Confirm</button>
+                        <button class="action-btn cancel-btn" onclick="updateBooking('${booking._id}', 'cancelled')">Cancel</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function updateBooking(bookingId, status) {
+            try {
+                const response = await fetch(`${API_URL}/bookings/${bookingId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                if (response.ok) {
+                    loadBookings();
+                }
+            } catch (error) {
+                console.error('Error updating booking:', error);
+            }
+        }
+
+        // Load bookings when page loads
+        document.addEventListener('DOMContentLoaded', loadBookings);
+    </script>
+</body>
+</html> 

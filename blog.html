@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TAJ SKYLINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header fixed-header">
+        <div class="head-top">
+            <span class="site-name">TAJ SKYLINE</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms</a>
+                <a href="offers.html">Offers</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="signin.html" class="btn-link">Sign In</a>
+                <a href="signup.html" class="btn-link">Sign Up</a>
+            </div>
+            <span class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </span>
+        </div>
+    </header>
+
+    <!-- Blog Section -->
+    <section class="blog-section main-content">
+        <div class="title">
+            <h1>Our Latest Stories</h1>
+            <p class="subtitle">Discover the luxury lifestyle and exclusive experiences at TAJ SKYLINE</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search articles...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Blog Categories -->
+        <div class="blog-categories">
+            <a href="#" class="category active">All</a>
+            <a href="#" class="category">Luxury</a>
+            <a href="#" class="category">Dining</a>
+            <a href="#" class="category">Wellness</a>
+            <a href="#" class="category">Events</a>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <div class="post-image">
+                    <span class="featured-tag">Featured</span>
+                    <img src="images/HotelExterior.jpg" alt="Luxury Hotel Experience" style="border-radius: 20px;">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 15, 2024</span>
+                        <span><i class="far fa-user"></i> By Sarah Johnson</span>
+                        <span><i class="far fa-heart"></i> 234 Likes</span>
+                    </div>
+                    <h2>Experience Ultimate Luxury: A Guide to 5-Star Hotel Stays</h2>
+                    <p>Discover the epitome of luxury hospitality with our comprehensive guide to experiencing the finest hotel amenities and services. From personalized butler service to exclusive access to premium facilities, learn how to make the most of your luxury hotel stay.</p>
+                    <div class="post-footer">
+                        <a href="blog1.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        <div class="post-tags">
+                            <a href="#">Luxury</a>
+                            <a href="#">Hotel</a>
+                            <a href="#">Travel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Posts with Enhanced Design -->
+            <div class="blog-post enhanced">
+                <div class="post-image">
+                    <span class="category-tag">Dining</span>
+                    <img src="images/FineDining.jpg" alt="Fine Dining Experience" style="border-radius: 20px;">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 10, 2024</span>
+                        <span><i class="far fa-user"></i> By Chef Michael Chen</span>
+                        <span><i class="far fa-heart"></i> 186 Likes</span>
+                    </div>
+                    <h2>Culinary Excellence: A Journey Through Fine Dining</h2>
+                    <p>Embark on a gastronomic adventure at our award-winning restaurants. Our master chefs create unforgettable culinary journeys that combine traditional flavors with modern techniques, using only the finest seasonal ingredients.</p>
+                    <div class="post-footer">
+                        <a href="blog2.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        <div class="post-tags">
+                            <a href="#">Dining</a>
+                            <a href="#">Gourmet</a>
+                            <a href="#">Cuisine</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-post enhanced">
+                <div class="post-image">
+                    <span class="category-tag">Wellness</span>
+                    <img src="images/spa.jpg" alt="Spa Experience" style="border-radius: 20px;">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 5, 2024</span>
+                        <span><i class="far fa-user"></i> By Dr. Emily Watson</span>
+                        <span><i class="far fa-heart"></i> 159 Likes</span>
+                    </div>
+                    <h2>Rejuvenate Your Senses: The Ultimate Spa Experience</h2>
+                    <p>Discover a world of tranquility and rejuvenation at our luxury spa. From traditional healing therapies to modern wellness treatments, our expert therapists create personalized experiences for ultimate relaxation and renewal.</p>
+                    <div class="post-footer">
+                        <a href="blog3.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        <div class="post-tags">
+                            <a href="#">Spa</a>
+                            <a href="#">Wellness</a>
+                            <a href="#">Relaxation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="prev"><i class="fas fa-chevron-left"></i> Previous</a>
+            <a href="#" class="number active">1</a>
+            <a href="#" class="number">2</a>
+            <a href="#" class="number">3</a>
+            <span>...</span>
+            <a href="#" class="number">8</a>
+            <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h2>About Us</h2>
+                <p>The Hotel is a modern, elegant 5-star hotel overlooking the sea, perfect for a romantic, charming vacation, in the enchanting setting of Taormina and the Ionian Sea.</p>
+                <ul class="social-icons">
+                    <li class="flex" id="twitter">
+                        <a href="http://twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="facebook">
+                        <a href="http://facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+                    </li>
+                    <li class="flex" id="instagram">
+                        <a href="http://instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Useful Links</h2>
+                <a href="#">Blog</a>
+                <a href="#">Rooms</a>
+                <a href="#">Subscription</a>
+                <a href="#">Gift Card</a>
+            </div>
+
+            <div>
+                <h2>Privacy</h2>
+                <a href="#">Career</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Services</a>
+            </div>
+
+            <div>
+                <h2>Have A Question</h2>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+                    <span>
+                        203 Fake St. Mountain View, San Francisco, California, USA
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-phone-alt"></i>
+                    </span>
+                    <span>
+                        +84545 37534 48
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <span>
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span>
+                        info@domain.com
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add script tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="blog-search.js"></script>
+</body>
+
+</html> 
