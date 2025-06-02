@@ -2245,7 +2245,7 @@ img {
 }
 
 .blog-post {
-    padding: 120px 0 80px;
+    padding: 0px 0 80px;
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/luxury-pattern.jpg');
     background-size: 200px;
     background-attachment: fixed;
