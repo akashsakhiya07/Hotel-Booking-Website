@@ -1203,6 +1203,8 @@ img {
     background: rgba(255, 255, 255, 0.1);
     padding: 25px;
     margin-bottom: 30px;
+    margin-left: 150px;
+    margin-right: 150px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
 }
@@ -1215,6 +1217,8 @@ img {
 .why-join-us {
     background: rgba(255, 255, 255, 0.1);
     padding: 25px;
+    margin-left: 150px;
+    margin-right: 150px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
 }
