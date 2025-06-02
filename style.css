@@ -1306,12 +1306,13 @@ img {
 .service-card {
     background: rgba(255, 255, 255, 0.1);
     padding: 25px;
-    padding-left: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
+    padding-left: 110px;
     margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
+
 }
 
 .service-card h3 {
