@@ -1,4 +1,4 @@
-# TAJ SKYLINE - Luxury Hotel Website
+# Velaris Royale - Luxury Hotel Website
 
 A modern and responsive hotel website built with HTML, CSS, and JavaScript. This project showcases a luxury hotel's online presence with features like room booking, gallery, blog, and contact information.
 
