@@ -76,7 +76,7 @@ img {
 
 /* Header Styles */
 .header {
-    min-height: 100vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
 }
